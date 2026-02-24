@@ -122,3 +122,24 @@ It highlights:
 - Engineering-focused LLM integration
 
 Built as a portfolio demonstration of production-style Agentic AI design principles.
+
+
+ ## 🏗 System Architecture
+
+```mermaid
+flowchart TD
+
+    A[User Query] --> B[Planner Agent<br/>(LangChain Orchestration)]
+
+    B --> C[Retrieval Layer<br/>(FAISS Vector DB)]
+    B --> D[Tool Invocation Layer<br/>(Filtering • Ranking • Memory)]
+
+    C --> E[LLM Reasoning Engine<br/>(OpenAI API)]
+    D --> E
+
+    E --> F[Structured Output<br/>+ Confidence Score]
+
+    subgraph Modular Components
+        C
+        D
+    end
