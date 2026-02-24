@@ -124,22 +124,36 @@ It highlights:
 Built as a portfolio demonstration of production-style Agentic AI design principles.
 
 
- ## 🏗 System Architecture
+## 🏗 Agentic RAG Architecture
 
 ```mermaid
 flowchart TD
 
-    A[User Query] --> B[Planner Agent<br/>(LangChain Orchestration)]
+    %% Input Layer
+    A["User Query"] --> B["Planner Agent\n(LangChain Orchestration)"]
 
-    B --> C[Retrieval Layer<br/>(FAISS Vector DB)]
-    B --> D[Tool Invocation Layer<br/>(Filtering • Ranking • Memory)]
-
-    C --> E[LLM Reasoning Engine<br/>(OpenAI API)]
-    D --> E
-
-    E --> F[Structured Output<br/>+ Confidence Score]
-
-    subgraph Modular Components
-        C
-        D
+    %% Agent Layer
+    subgraph Agent Layer
+        B
+        C["Tool Invocation Layer\n(Filter • Ranking • Memory)"]
     end
+
+    %% Retrieval Layer
+    subgraph Retrieval Layer
+        D["FAISS Vector Store\n(Embeddings + Semantic Search)"]
+    end
+
+    %% Reasoning Layer
+    subgraph Reasoning Engine
+        E["LLM Reasoning Engine\n(OpenAI API)"]
+    end
+
+    %% Output Layer
+    F["Structured Output\n+ Confidence Score"]
+
+    %% Connections
+    B --> C
+    B --> D
+    C --> E
+    D --> E
+    E --> F
