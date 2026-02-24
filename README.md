@@ -129,29 +129,23 @@ Built as a portfolio demonstration of production-style Agentic AI design princip
 ```mermaid
 flowchart TD
 
-    %% Input Layer
-    A["User Query"] --> B["Planner Agent\n(LangChain Orchestration)"]
+    A["User Query"] --> B["Planner Agent<br>(LangChain Orchestration)"]
 
-    %% Agent Layer
     subgraph Agent Layer
         B
-        C["Tool Invocation Layer\n(Filter • Ranking • Memory)"]
+        C["Tool Invocation Layer<br>(Filtering • Ranking • Memory)"]
     end
 
-    %% Retrieval Layer
     subgraph Retrieval Layer
-        D["FAISS Vector Store\n(Embeddings + Semantic Search)"]
+        D["FAISS Vector Store<br>(Embeddings + Semantic Search)"]
     end
 
-    %% Reasoning Layer
     subgraph Reasoning Engine
-        E["LLM Reasoning Engine\n(OpenAI API)"]
+        E["LLM Reasoning Engine<br>(OpenAI API)"]
     end
 
-    %% Output Layer
-    F["Structured Output\n+ Confidence Score"]
+    F["Structured Output<br>+ Confidence Score"]
 
-    %% Connections
     B --> C
     B --> D
     C --> E
