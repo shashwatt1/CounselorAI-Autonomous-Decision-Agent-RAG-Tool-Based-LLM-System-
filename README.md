@@ -44,7 +44,7 @@ The architecture maintains strict modular separation between:
 - Memory handling  
 - Evaluation framework  
 
----
+--
 
 ## 🧠 Core Capabilities
 
